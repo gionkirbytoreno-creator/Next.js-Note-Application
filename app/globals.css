@@ -1,26 +1,237 @@
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #080b1b;
+  --foreground: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  margin: 0;
+  min-height: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(ellipse at 15% 10%, #5726a0 0, transparent 40%),
+    radial-gradient(ellipse at 90% 85%, #7b245c 0, transparent 35%),
+    radial-gradient(ellipse at 70% 60%, #063f60 0, transparent 35%),
+    #080b1b;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  background: rgba(15, 20, 43, 0.92);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+}
+
+.login-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #873cff, #e83fae, #20bde9);
+  font-size: 27px;
+}
+
+.login-label {
+  margin-top: 28px;
+  color: #bca1ff;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.login-card h1 {
+  margin: 10px 0;
+  font-size: 36px;
+  letter-spacing: -1px;
+}
+
+.login-description {
+  margin-bottom: 30px;
+  color: #a4abc5;
+  line-height: 1.6;
+}
+
+.login-card label {
+  display: block;
+  margin: 18px 0 8px;
+  color: #e0e3f2;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #343b59;
+  border-radius: 11px;
+  outline: none;
+  background: #0b1025;
+  color: white;
+  font-size: 15px;
+}
+
+.login-card input:focus {
+  border-color: #a56bff;
+  box-shadow: 0 0 0 3px rgba(165, 107, 255, 0.15);
+}
+
+.login-button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(100deg, #813cff, #d940b6, #24bde5);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-button span {
+  float: right;
+}
+
+.login-button:hover {
+  filter: brightness(1.12);
+}
+
+.login-error {
+  margin: 15px 0 0;
+  padding: 12px;
+  border: 1px solid #71364d;
+  border-radius: 9px;
+  background: #351827;
+  color: #ff9eaf;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.login-footer {
+  margin: 25px 0 0;
+  color: #8189a8;
+  font-size: 12px;
+  text-align: center;
+}
+
+.notes-page {
+  min-height: 100vh;
+  padding: 40px 24px;
+  background: #080b1b;
+  color: white;
+}
+
+.notes-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.notes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.notes-header h1 {
+  margin-bottom: 8px;
+}
+
+.notes-header p {
+  color: #a4abc5;
+}
+
+.notes-header button,
+.note-form button,
+.note-actions button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 9px;
+  background: #813cff;
+  color: white;
+  cursor: pointer;
+}
+
+.note-form,
+.note-card {
+  margin-bottom: 20px;
+  padding: 24px;
+  border: 1px solid #343b59;
+  border-radius: 16px;
+  background: #11172d;
+}
+
+.note-form input,
+.note-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 13px;
+  border: 1px solid #343b59;
+  border-radius: 9px;
+  background: #080b1b;
+  color: white;
+  font: inherit;
+}
+
+.note-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.note-card h2 {
+  margin-top: 0;
+  overflow-wrap: anywhere;
+}
+
+.note-card p {
+  color: #c1c7dc;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.note-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.note-actions .delete-button {
+  background: #a52d4a;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 25px;
+  }
+
+  .login-card h1 {
+    font-size: 30px;
+  }
 }
